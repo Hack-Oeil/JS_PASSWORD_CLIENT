@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Password</title>
+</head>
+<body>
+    <h1>Changement de Mot de Passe</h1>
+    <p>Le mot de passe change toutes les 5 secondes.</p>
+    <p>Vous devez trouver le bon mot de passe pour obtenir le flag !</p>
+    <input type="text" id="userPass" placeholder="Entrez le mot de passe">
+    <button onclick="verifierMotDePasse()">Vérifier</button>
+    <p id="message"></p>
+
+    <script>       
+        /* Ne vous embetez pas avec la ligne suivante pour le CTF, c'est possible de réaliser 
+           le challenge d'ici mais plus compliqué, trouvez un moyen plus simple */
+           (function(_0x3a6cdc,_0x137c85){const _0x4a183f=_0xd88f,_0x29de1d=_0x3a6cdc();while(!![]){try{const _0x3e7f4a=-parseInt(_0x4a183f(0x172))/0x1+-parseInt(_0x4a183f(0x173))/0x2*(parseInt(_0x4a183f(0x178))/0x3)+parseInt(_0x4a183f(0x177))/0x4+parseInt(_0x4a183f(0x170))/0x5+parseInt(_0x4a183f(0x174))/0x6+-parseInt(_0x4a183f(0x171))/0x7+parseInt(_0x4a183f(0x176))/0x8;if(_0x3e7f4a===_0x137c85)break;else _0x29de1d['push'](_0x29de1d['shift']());}catch(_0xd521a5){_0x29de1d['push'](_0x29de1d['shift']());}}}(_0x3b92,0x67d65));function _0xd88f(_0x5e3bd5,_0x267abf){const _0x3b92f2=_0x3b92();return _0xd88f=function(_0xd88f58,_0x12e841){_0xd88f58=_0xd88f58-0x170;let _0x452e41=_0x3b92f2[_0xd88f58];return _0x452e41;},_0xd88f(_0x5e3bd5,_0x267abf);}function msg(){const _0x4b9e8c=_0xd88f;let _0x310abc='';for(let _0x3d9950=0x0;_0x3d9950<0x34;_0x3d9950++)_0x310abc+=String[_0x4b9e8c(0x179)](('Yr-synt-r\u0080\u0081-CE?=EBonrDFD=r>=EpE@FAoproDEDs>ADp?nCp@p'['charCodeAt'](_0x3d9950)-0xd+0x100)%0x100);if(motDePasseUser===motDePasse)return _0x310abc;else return _0x4b9e8c(0x175);}function _0x3b92(){const _0x31c798=['2469733jThuRg','437393fcIqWc','92ZTCSDY','2282844UzPkVM','euh\x20non\x20je\x20ne\x20crois\x20pas\x20que\x20tu\x20l\x27auras\x20de\x20cette\x20façon\x20!','1616528GwSayE','1653600OJZycP','1788opaWix','fromCharCode','1235025CYYHbt'];_0x3b92=function(){return _0x31c798;};return _0x3b92();}
+
+
+        var motDePasse, motDePasseUser;
+
+        function generateRandomPassword() {
+            let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            let newPassword = "";
+            for (let i = 0; i < 12; i++) {newPassword += characters.charAt(Math.floor(Math.random() * characters.length));}
+            motDePasse = newPassword;
+        }
+
+        function verifierMotDePasse() {
+            motDePasseUser = document.getElementById("userPass").value;
+            let message = document.getElementById("message");
+            if (motDePasseUser === motDePasse) { message.textContent = msg();} 
+            else { message.textContent = "Mot de passe incorrect. Réessayez."; }
+        }
+
+        generateRandomPassword();
+
+        // Changer le mot de passe toutes les 5 secondes
+        setInterval(generateRandomPassword, 5000);
+    </script>
+</body>
+</html>
+
+
+
+
+
